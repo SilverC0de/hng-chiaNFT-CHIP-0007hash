@@ -25,6 +25,7 @@
   "homepage": "https://github.com/SilverC0de/hng-chiaNFT-CHIP-0007hash#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "fast-csv": "^4.3.6"
   }
 }
