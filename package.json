@@ -4,6 +4,7 @@
   "description": "Chia NFT sha256 hasher",
   "main": "hash.js",
   "scripts": {
+    "start" : "node hash.js",
     "test": "test"
   },
   "repository": {
