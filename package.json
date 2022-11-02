@@ -1,0 +1,28 @@
+{
+  "name": "hng-chianft-chip-0007hash",
+  "version": "0.0.1",
+  "description": "Chia NFT sha256 hasher",
+  "main": "hash.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/SilverC0de/hng-chiaNFT-CHIP-0007hash.git"
+  },
+  "keywords": [
+    "hng",
+    "sha256",
+    "chiaNFT",
+    "CHIP-0007"
+  ],
+  "author": "Silver",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SilverC0de/hng-chiaNFT-CHIP-0007hash/issues"
+  },
+  "homepage": "https://github.com/SilverC0de/hng-chiaNFT-CHIP-0007hash#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
