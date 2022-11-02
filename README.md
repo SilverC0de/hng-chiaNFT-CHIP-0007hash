@@ -1,6 +1,6 @@
 # Sha256 of NFT json files collated to a CSV file
 
-### 😌 For non technical users
+## 😌 For non technical users
 
 What the system does
 1. Accept a csv file by uploading to https://hng-chianft-chip-0007hash.vercel.app/upload using the *file* key
@@ -10,8 +10,8 @@ What the system does
 5. Creates a download link for the new CSV file as team.output.csv
 
 
-
-### 👩‍🦰 For frontend devs
+#
+## 👩‍🦰 For frontend devs
 
 1. Build a file upload interface that accept CSV file
 2. Send the uploaded CSV file to the endpoint as explained below
@@ -32,8 +32,8 @@ sample response
 ```
 
 
-
-### 🥷 For backend devs
+#
+## 🥷 For backend devs
 
 This repository allows you convert json data to sha256
 
@@ -52,26 +52,26 @@ The structure of the JSON file for each NFT before hashing
     "description": "Description of the NFT",
     "minting_tool": "SuperMinter/2.5.2",
     "sensitive_content": false,
-    "series_number": 1, //unique number of each NFT in a series
-    "series_total": 20, //Every team has 20 NFTs so the total can't be more then 20
+    "series_number": 1,
+    "series_total": 20,
     "attributes": [
         {
-            "trait_type": "Name of the NFT", //e.g Silver
-            "value": "Value of the NFT" //can also be short description
+            "trait_type": "Name of the NFT",
+            "value": "Short description of the NFT"
         }
     ],
     "collection": {
         "name": "Name of team that created this NFT",
-        "id": "e43fcfe6-1d5c-4d6e-82da-5de3aa8b3b57", //generate uuid for the team and keep it for consistency
+        "id": "e43fcfe6-1d5c-4d6e-82da-5de3aa8b3b57",
         "attributes": [
             {
-                "type": "Name of the collection attribute", //Or Name of the NFT collection
-                "value": "Value of the NFT collection" //e.g Awesome NFT collection made by team Silver
+                "type": "Name of the NFT collection",
+                "value": " Awesome NFT collection made by team Silver"
             }
         ]
     },
     "data": {
-        "example_data": "VGhpcyBpcyBhbiBleGFtcGxlIG9mIGRhdGEgdGhhdCB5b3UgbWlnaHQgd2FudCB0byBzdG9yZSBpbiB0aGUgZGF0YSBvYmplY3QuIE5GVCBhdHRyaWJ1dGVzIHdoaWNoIGFyZSBub3QgaHVtYW4gcmVhZGFibGUgc2hvdWxkIGJlIHBsYWNlZCB3aXRoaW4gdGhpcyBvYmplY3QsIGFuZCB0aGUgYXR0cmlidXRlcyBhcnJheSB1c2VkIG9ubHkgZm9yIGluZm9ybWF0aW9uIHdoaWNoIGlzIGludGVuZGVkIHRvIGJlIHJlYWQgYnkgdGhlIHVzZXIu"
+        "uuid": "e43fcfe6-1d5c-4d6e-82da-5de3aa8b3b57"
     }
 }
 ```

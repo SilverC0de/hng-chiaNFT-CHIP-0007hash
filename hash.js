@@ -11,8 +11,15 @@ api.use(cors());
 
 
 
-api.post('/hash', (request, response) => {
+api.post('/upload', (request, response) => {
     let json = request.body //JSON data
+
+    //System Design
+    //1. Get the CSV file
+    //2. Create a JSON object with the CSV file with CHIP-0007 format
+    //3. Get the sha256 hash the JSON object 
+    //4. Write to the CSV file and append the sha256 hash
+    //5. Save CSV file and create download link
 
 
     //check if json contains a file
@@ -38,7 +45,7 @@ api.post('/hash', (request, response) => {
 
 //for endpoints that are not valid
 api.all('*', (request, response) => {
-    response.status(404).send('CHIP-0007 sha256 hasher is running, open https://localhost:8880 on postman and send a post request containing the JSON file as the data to get the sha256 hash')
+    response.status(404).send('CHIP-0007 sha256 CSV hasher is running')
 });
 
 
