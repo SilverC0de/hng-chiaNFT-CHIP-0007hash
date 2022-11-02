@@ -1,5 +1,8 @@
-# Sha256 of NFT json files collated to a CSV file
+# ✨ CHIP-0007 sha256 CSV processor
+Backend system processing CSV files to create a CHIP-0007 JSON data and then calculate the sha256 hash of the JSON then append the hash to the CSV file.
+Sounds like a lot but its nothing, please read through and give a star rating.
 
+######
 ## 😌 For non technical users
 
 What the system does
@@ -10,7 +13,7 @@ What the system does
 5. Creates a download link for the new CSV file as team.output.csv
 
 
-#
+######
 ## 👩‍🦰 For frontend devs
 
 1. Build a file upload interface that accept CSV file
@@ -32,7 +35,7 @@ sample response
 ```
 
 
-#
+######
 ## 🥷 For backend devs
 
 This repository allows you convert json data to sha256
