@@ -1,0 +1,10 @@
+{
+    "version": 2,
+    "name": "Chia NFT sha256 hasher",
+    "builds": [
+       { "src": "server.js", "use": "@vercel/node" }
+    ],
+    "routes": [
+       { "src": "/(.*)", "dest": "/hash.js" }
+    ]
+ }
