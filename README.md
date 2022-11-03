@@ -56,9 +56,10 @@ This repository allows you convert json data to sha256
 2. ``git clone https://github.com/SilverC0de/hng-chiaNFT-CHIP-0007hash``
 3. ``cd hng-chiaNFT-CHIP-0007hash``
 4. ``npm i``
-5. Open Postman and make a POST request to http://localhost:8880/upload with your CSV file using form-data with key *file*
-6. It will return a new CSV file link containing sha256 hash of the NFTs
-7. You can also access the CSV file from the directory as `nft.output.csv`
+5. ``npm start``
+6. Open Postman and make a POST request to http://localhost:8880/upload with your CSV file using form-data with key **file**
+7. It will return a new CSV file link containing sha256 hash of the NFTs
+8. You can also access the CSV file from the directory as `nft.output.csv`
 
 The structure of the JSON file for each NFT before hashing
 ```json
