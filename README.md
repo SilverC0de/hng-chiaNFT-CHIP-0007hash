@@ -6,11 +6,11 @@ Sounds like a lot but its nothing, please read through and give a star rating.
 ## 😌 For non technical users
 
 What the system does
-1. Accept a csv file by uploading to https://hng-chianft-chip-0007hash.vercel.app/upload using the *file* key
+1. Accept a csv file by uploading to http://localhost:8880/upload using the *file* key
 2. Runs through the CSV file and gets each row
 3. Converts each row to a Chia CHIP-0007 JSON format
 4. Convert the JSON data to sha256 and append it to CSV file
-5. Creates a download link for the new CSV file as `nft.output.csv`
+5. Creates a download link for the new CSV file as `nftx.output.csv` or `nft.output.csv` depending on weather you used cli or run it as a local server
 
 #
 ## 🧙 For CLI users
@@ -24,27 +24,6 @@ If you want to use the command line interface, you need to have Nodejs installed
 5. ``npm run cli``
 6. Follow the CLI prompts
 7. Your processed CSV file will now be found in the directory as `nftx.output.csv`
-
-#
-## 👩‍🦰 For frontend devs
-
-1. Build a file upload interface that accept CSV file
-2. Send the uploaded CSV file to the endpoint as explained below
-    - Endpoint is https://hng-chianft-chip-0007hash.vercel.app/upload
-    - Method is a **POST request**
-    - Body type is **form-data**
-    - Key is **file**
-3. It will send back a response containing the download link to the new CSV file with sha256 hash of the JSON NFT data.
-
-
-sample response
-```json
-{
-    "status": true,
-    "message": "New CSV file has been generated successfully",
-    "link": "https://hng-chianft-chip-0007hash.vercel.app/download/nft.output.csv"
-}
-```
 
 
 #
