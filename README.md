@@ -10,7 +10,7 @@ What the system does
 2. Runs through the CSV file and gets each row
 3. Converts each row to a Chia CHIP-0007 JSON format
 4. Convert the JSON data to sha256 and append it to CSV file
-5. Creates a download link for the new CSV file as team.output.csv
+5. Creates a download link for the new CSV file as `nft.output.csv`
 
 #
 ## 🧙 For CLI users
