@@ -2,7 +2,7 @@
 Backend system processing CSV files to create a CHIP-0007 JSON data and then calculate the sha256 hash of the JSON then append the hash to the CSV file.
 Sounds like a lot but its nothing, please read through and give a star rating.
 
-######
+#
 ## 😌 For non technical users
 
 What the system does
@@ -13,12 +13,12 @@ What the system does
 5. Creates a download link for the new CSV file as team.output.csv
 
 
-######
+#
 ## 👩‍🦰 For frontend devs
 
 1. Build a file upload interface that accept CSV file
 2. Send the uploaded CSV file to the endpoint as explained below
-    - Endpoint is **https://hng-chianft-chip-0007hash.vercel.app/upload**
+    - Endpoint is https://hng-chianft-chip-0007hash.vercel.app/upload
     - Method is a **POST request**
     - Body type is **form-data**
     - Key is **file**
@@ -35,7 +35,7 @@ sample response
 ```
 
 
-######
+#
 ## 🥷 For backend devs
 
 This repository allows you convert json data to sha256
@@ -72,9 +72,6 @@ The structure of the JSON file for each NFT before hashing
                 "value": " Awesome NFT collection made by team Silver"
             }
         ]
-    },
-    "data": {
-        "uuid": "e43fcfe6-1d5c-4d6e-82da-5de3aa8b3b57"
     }
 }
 ```

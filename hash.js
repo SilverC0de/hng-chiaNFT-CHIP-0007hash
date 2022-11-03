@@ -1,14 +1,17 @@
 const express = require('express')
-const crypto = require('crypto')
 const cors = require('cors')
+const fs = require('fs');
+const path = require('path');
+const csv = require('fast-csv');
 const fileupload = require('express-fileupload')
 const { v4: uuidv4 } = require('uuid')
+const { createNewCSV } = require('./lib')
 const api = express()
 
 
 api.use(express.urlencoded({ extended: true }));
 api.use(express.json({ limit: '10mb' })); // limit all JSON size to 10MB
-api.use(fileupload({limits: { fileSize: 50 * 1024 * 1024 }})) //limit file upload to 50MB
+api.use(fileupload({limits: { fileSize: 50 * 1024 * 1024 }, useTempFiles : true, tempFileDir : '/tmp/'})) //limit file upload to 50MB
 api.use(cors());
 
 
@@ -16,6 +19,9 @@ api.use(cors());
 
 api.post('/upload', (request, response) => {
     let uuid = uuidv4();
+
+    let csv_array_file = [];
+    
 
     //System Design
     //1. Get the CSV file
@@ -58,25 +64,49 @@ api.post('/upload', (request, response) => {
     }
 
 
-    //All checks completed, begin processing!
+    // get the csv file path
+    let csv_file_path = path.resolve(__dirname, request.files.file.tempFilePath)
 
-    //generate the hash of the json
-    const hash = crypto.createHash('sha256').update(JSON.stringify(json)).digest('hex');
+    
+    
+    //All checks completed, begin processing!
+    fs.createReadStream(csv_file_path)
+        .pipe(csv.parse({
+            headers: true
+        }))
+        .on('error', (e) => {
+            console.log(e)
+        })
+        .on('data', (data) => {
+            //push to array
+            csv_array_file.push(data)
+        })
+        .on('end', () => {
+            createNewCSV(csv_file_path, csv_array_file)
+            console.log('all done')
+        })
+
+
 
     return response.status(200).json({
         status: true,
-        message: 'SHA256 hash of the JSON data has been generated',
-        sha256: hash
+        message: 'New CSV file has been generated successfully',
+        link: 'http://localhost:8880/download/nft.output.csv'
     })
 })
 
+api.get('/download/:filename', (request, response) => {
+    let name = request.params.filename;
+    let file = `${__dirname}/${name}`;
+    response.download(file); // Set disposition and send it.
+})
 
 //for endpoints that are not valid
 api.all('*', (request, response) => {
-    response.status(404).send('CHIP-0007 sha256 CSV hasher is running')
+    response.status(404).send('CSV file processor to CHIP-0007 sha256 hash is running')
 });
 
 
 api.listen(8880, ()=> {
-    console.log(`CHIP-0007 running on port 8880`)
+    console.log(`CSV file processor to CHIP-0007 sha 256 hash running on port 8880`)
 })
