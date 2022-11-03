@@ -40,14 +40,14 @@ const createNewCSVData = async (columns, data) => {
         //this is each row
 
         //find each column from the insane key values
+        let team_name = data[i]['TEAM NAMES'] 
         let serial_number = data[i]['Series Number'] 
         let file_name = data[i]['Filename'] 
         let name = data[i]['Name']
         let description = data[i]['Description']
         let gender = data[i]['Gender']
-        let attributes = data[i]['Attributes- Hair. Eyes. Teeth. Clothing. Accessories. Expression. Strength. Weakness']
+        let attributes = data[i]['Attributes']
         let uuid = data[i]['UUID']
-
         
 
         //create CHIP-0007 JSON 
@@ -66,7 +66,7 @@ const createNewCSVData = async (columns, data) => {
                 }
             ],
             'collection': {
-                'name': 'Zuri NFT collection',
+                'name': team_name,
                 'id': uuid,
                 'attributes': [
                     {
