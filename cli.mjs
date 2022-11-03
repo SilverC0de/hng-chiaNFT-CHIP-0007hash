@@ -1,8 +1,12 @@
-const fs = require('fs')
-const csv = require('fast-csv');
-const crypto = require('crypto')
-const { stringify } = require('csv-stringify')
+import fs from "fs";
+import csv from "fast-csv";
+import figlet from "figlet";
+import inquirer from "inquirer";
+import crypto from "crypto"
+import { stringify } from "csv-stringify"
 
+
+let filepath;
 
 const createNewCSV = async (path, data) => {
     let firstRowRetrieved = false;
@@ -24,8 +28,9 @@ const createNewCSV = async (path, data) => {
     })
 }
 
+//create file
 const createNewCSVData = async (columns, data) => {
-    let writableStream = fs.createWriteStream('nft.output.csv');
+    let writableStream = fs.createWriteStream('nftx.output.csv');
 
     let total = data[data.length - 1]['Series Number']
     let stringifier = stringify({ header: true, columns: columns })
@@ -84,7 +89,67 @@ const createNewCSVData = async (columns, data) => {
     }
 
     stringifier.pipe(writableStream);
-    console.log('finished writing csv data');
+    console.log('CSV file processed successfully');
+    console.log(`New CSV file name is nftx.output.csv`)
 }
 
-module.exports = { createNewCSV }
+
+const fileValidator = async (input) => {
+    //let csv_file_path = path.resolve(__dirname, input)
+
+    //console.log(csv_file_path)
+
+    if (!fs.existsSync(input)) {
+       return 'Place the CSV file in the same location as this script and type in a valid CSV filename';
+    }
+    return true;
+ };
+
+
+
+
+
+ //cli script
+const runCLIScript = async () => {
+    let csv_array_file = [];
+
+
+    figlet('sha256 Hasher', function (err, data) {
+        console.log(data)
+    });
+  
+    // Wait for 2secs
+    await new Promise(resolve => setTimeout(resolve, 1200));
+  
+
+    // Ask the user's name
+    const { name } = await inquirer.prompt({
+        type: "input",
+        name: "name",
+        message: "Please enter the name of the CSV file e.g database.csv:",
+        validate: fileValidator
+    }).then();
+  
+    // Set the user's name
+    filepath = name;
+
+    console.log(`Starting ${filepath} file processing`)
+
+    fs.createReadStream(filepath)
+    .pipe(csv.parse({
+        headers: true
+    }))
+    .on('error', (e) => {
+        console.log(e)
+    })
+    .on('data', (data) => {
+        //push to array
+        csv_array_file.push(data)
+    })
+    .on('end', () => {
+        createNewCSV(filepath, csv_array_file)
+        console.log('CSV data extracted')
+    })
+}
+
+runCLIScript();

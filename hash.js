@@ -4,7 +4,6 @@ const fs = require('fs');
 const path = require('path');
 const csv = require('fast-csv');
 const fileupload = require('express-fileupload')
-const { v4: uuidv4 } = require('uuid')
 const { createNewCSV } = require('./lib')
 const api = express()
 
@@ -18,8 +17,6 @@ api.use(cors());
 
 
 api.post('/upload', (request, response) => {
-    let uuid = uuidv4();
-
     let csv_array_file = [];
     
 
@@ -75,7 +72,7 @@ api.post('/upload', (request, response) => {
             headers: true
         }))
         .on('error', (e) => {
-            console.log(e)
+
         })
         .on('data', (data) => {
             //push to array
@@ -83,7 +80,6 @@ api.post('/upload', (request, response) => {
         })
         .on('end', () => {
             createNewCSV(csv_file_path, csv_array_file)
-            console.log('all done')
         })
 
 

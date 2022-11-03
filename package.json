@@ -5,6 +5,7 @@
   "main": "hash.js",
   "scripts": {
     "start": "node hash.js",
+    "cli": "node --experimental-modules cli.mjs",
     "test": "test"
   },
   "repository": {
@@ -29,6 +30,7 @@
     "express": "^4.18.2",
     "express-fileupload": "^1.4.0",
     "fast-csv": "^4.3.6",
-    "uuid": "^9.0.0"
+    "figlet": "^1.5.2",
+    "inquirer": "^9.1.4"
   }
 }

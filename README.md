@@ -12,6 +12,18 @@ What the system does
 4. Convert the JSON data to sha256 and append it to CSV file
 5. Creates a download link for the new CSV file as team.output.csv
 
+#
+## 😌 For CLI users
+
+If you want to use the command line interface, you need to have Nodejs installed, you can download Nodejs [here](https://nodejs.org/en/download/)
+
+1. ``git clone https://github.com/SilverC0de/hng-chiaNFT-CHIP-0007hash``
+2. ``cd hng-chiaNFT-CHIP-0007hash``
+3. Make sure the CSV file is added to the directory
+4. ``npm i``
+5. ``npm run cli``
+6. Follow the CLI prompts
+7. Your processed CSV file will now be found in the directory as `nftx.output.csv`
 
 #
 ## 👩‍🦰 For frontend devs
@@ -30,7 +42,7 @@ sample response
 {
     "status": true,
     "message": "New CSV file has been generated successfully",
-    "link": "https://hng-chianft-chip-0007hash.vercel.app/bin/team.output.csv"
+    "link": "https://hng-chianft-chip-0007hash.vercel.app/download/nft.output.csv"
 }
 ```
 
@@ -45,7 +57,8 @@ This repository allows you convert json data to sha256
 3. ``cd hng-chiaNFT-CHIP-0007hash``
 4. ``npm i``
 5. Open Postman and make a POST request to http://localhost:8880/upload with your CSV file using form-data with key *file*
-6. It will return a new CSV file containing sha256 hash of the NFTs
+6. It will return a new CSV file link containing sha256 hash of the NFTs
+7. You can also access the CSV file from the directory as `nft.output.csv`
 
 The structure of the JSON file for each NFT before hashing
 ```json
