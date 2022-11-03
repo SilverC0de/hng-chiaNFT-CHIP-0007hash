@@ -87,7 +87,7 @@ api.post('/upload', (request, response) => {
     return response.status(200).json({
         status: true,
         message: 'New CSV file has been generated successfully',
-        link: 'http://localhost:8880/download/nft.output.csv'
+        link: 'https://hng-chianft-chip-0007hash.vercel.app/download/nft.output.csv'
     })
 })
 
