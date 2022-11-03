@@ -13,7 +13,7 @@ What the system does
 5. Creates a download link for the new CSV file as team.output.csv
 
 #
-## 😌 For CLI users
+## 🧙 For CLI users
 
 If you want to use the command line interface, you need to have Nodejs installed, you can download Nodejs [here](https://nodejs.org/en/download/)
 

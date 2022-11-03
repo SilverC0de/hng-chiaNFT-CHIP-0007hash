@@ -99,7 +99,7 @@ api.get('/download/:filename', (request, response) => {
 
 //for endpoints that are not valid
 api.all('*', (request, response) => {
-    response.status(404).send('CSV file processor to CHIP-0007 sha256 hash is running')
+    response.status(404).send('CSV file processor to CHIP-0007 sha256 hasher is running')
 });
 
 
