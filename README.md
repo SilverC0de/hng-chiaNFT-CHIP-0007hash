@@ -31,7 +31,7 @@ If you want to use the command line interface, you need to have Nodejs installed
 #
 ## 🥷 For backend devs
 
-This repository allows you also use Postman to test the endpoint that allows upload of csv file.
+This repository also allows uploading of your CSV file using Postman.
 
 1. Make sure you're running Node.js on your system
 2. ``git clone https://github.com/SilverC0de/hng-chiaNFT-CHIP-0007hash``
