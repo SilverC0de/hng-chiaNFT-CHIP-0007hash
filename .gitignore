@@ -3,3 +3,4 @@ nft.output.csv
 nftx.output.csv
 metadata.json
 package-lock.json
+.DS_Store
