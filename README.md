@@ -3,7 +3,6 @@ Backend system processing CSV files to create a CHIP-0007 JSON data and then cal
 Sounds like a lot but its nothing, please read through and give a star rating.
 
 #
-## 😌 For non technical users
 
 What the system does
 1. Accept a csv file by uploading to http://localhost:8880/upload using the *file* key
@@ -12,8 +11,10 @@ What the system does
 4. Convert the JSON data to sha256 and append it to CSV file
 5. Creates a download link for the new CSV file as `nftx.output.csv` or `nft.output.csv` depending on weather you used cli or run it as a local server
 
+
 #
 ## 🧙 For CLI users
+
 
 If you want to use the command line interface, you need to have Nodejs installed, you can download Nodejs [here](https://nodejs.org/en/download/)
 
@@ -49,20 +50,20 @@ The structure of the JSON file for each NFT before hashing
     "minting_tool": "SuperMinter/2.5.2",
     "sensitive_content": false,
     "series_number": 1,
-    "series_total": 20,
+    "series_total": 420,
     "attributes": [
         {
-            "trait_type": "Name of the NFT",
-            "value": "Short description of the NFT"
+            "trait_type": "Age",
+            "value": "20"
         }
     ],
     "collection": {
-        "name": "Name of team that created this NFT",
-        "id": "e43fcfe6-1d5c-4d6e-82da-5de3aa8b3b57",
+        "name": "Zuri NFT Tickets for Free Lunch",
+        "id": "9fec2493-14ab-45bc-8ff0-9bd4b5c20adc",
         "attributes": [
             {
-                "type": "Name of the NFT collection",
-                "value": " Awesome NFT collection made by team Silver"
+                "type": "Zuri NFT",
+                "value": "Rewards for accomplishments during HNGi9"
             }
         ]
     }
