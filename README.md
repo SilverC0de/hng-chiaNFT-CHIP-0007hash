@@ -4,12 +4,12 @@ Sounds like a lot but its nothing, please read through and give a star rating.
 
 #
 
-What the system does
-1. Accept a csv file by uploading to http://localhost:8880/upload using the *file* key
-2. Runs through the CSV file and gets each row
-3. Converts each row to a Chia CHIP-0007 JSON format
-4. Convert the JSON data to sha256 and append it to CSV file
-5. Creates a download link for the new CSV file as `nftx.output.csv` or `nft.output.csv` depending on weather you used cli or run it as a local server
+What this software does...
+1. Accept a CSV file by either uploading or using the CLI
+2. Runs through the CSV file creates a CHIP-0007 JSON data from the available information on the CSV file
+3. Creates a `sha256` hash of each CHIP-0007 JSON data
+4. Saves the sha256 hash as a new column on an output CSV file
+5. Your new `csv` file and your CHIP-0007 `json` file has now been created
 
 
 #
@@ -24,48 +24,21 @@ If you want to use the command line interface, you need to have Nodejs installed
 4. ``npm i``
 5. ``npm run cli``
 6. Follow the CLI prompts
-7. Your processed CSV file will now be found in the directory as `nftx.output.csv`
+7. Your processed JSON file will now be found in the directory as `metadata.json`
+8. Your processed CSV file will now be found in the directory as `nftx.output.csv`
 
 
 #
 ## 🥷 For backend devs
 
-This repository allows you convert json data to sha256
+This repository allows you also use Postman to test the endpoint that allows upload of csv file.
 
 1. Make sure you're running Node.js on your system
 2. ``git clone https://github.com/SilverC0de/hng-chiaNFT-CHIP-0007hash``
 3. ``cd hng-chiaNFT-CHIP-0007hash``
 4. ``npm i``
 5. ``npm start``
-6. Open Postman and make a POST request to http://localhost:8880/upload with your CSV file using form-data with key **file**
-7. It will return a new CSV file link containing sha256 hash of the NFTs
-8. You can also access the CSV file from the directory as `nft.output.csv`
-
-The structure of the JSON file for each NFT before hashing
-```json
-{
-    "format": "CHIP-0007",
-    "name": "Name of the NFT",
-    "description": "Description of the NFT",
-    "minting_tool": "SuperMinter/2.5.2",
-    "sensitive_content": false,
-    "series_number": 1,
-    "series_total": 420,
-    "attributes": [
-        {
-            "trait_type": "Age",
-            "value": "20"
-        }
-    ],
-    "collection": {
-        "name": "Zuri NFT Tickets for Free Lunch",
-        "id": "9fec2493-14ab-45bc-8ff0-9bd4b5c20adc",
-        "attributes": [
-            {
-                "type": "Zuri NFT",
-                "value": "Rewards for accomplishments during HNGi9"
-            }
-        ]
-    }
-}
-```
+6. Open Postman and make a POST request to http://localhost:8880/upload 
+7. Upload your csv file using form-data with key **file**
+8. It will return a response containing a link to the newly formatted CSV file and save a copy as `nft.output.csv`
+9. It will also save the JSON file for the NFT as `metadata.json`
